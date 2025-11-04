@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata&display=swap');
+
+.monitor-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -55%);
+    perspective: 800px; /* monitor の奥行き感用 */
+    background-color: rgb(10, 10, 12);
+}
+
+.monitor {
+    width: 60vw;
+    height: 80vh;
+    background-color: #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 10px;
+
+    transform: rotateX(10deg) scale(1.1);
+    transform-style: preserve-3d;
+
+    border-radius: 10vw; /* ←角を丸くする */
+
+    overflow-y: auto; /* 縦スクロール */
+    overflow-x: hidden; /* 横スクロールは非表示 */
+}
+
+#board {
+    display: flex;
+    flex-direction: column; /* 投稿は縦に積む */
+    font-size: 0.8vw;
+    width: 80%;
+    gap: 5px; /* 投稿間の隙間 */
+    flex-grow: 1; /* 入力欄下に伸びるように */
+    color: #0f0;
+    gap: 0.55vw;
+}
+
+#board > div {
+    width: 100%;
+    text-align: center;      /* 投稿テキストを中央揃え */
+}
+
+/* フォーム系 */
+
+.typeform {
+    display: flex; /* フォームとボタンを横並び */
+    width: 100%;
+    bottom: 1vw;
+    gap: 5px; /* 入力欄とボタンの隙間 */
+    margin-top: 10px;
+    justify-content: center;  /* 横方向中央揃え */
+    position: sticky;  /* ← monitor 内でスクロールしても一定位置に固定 */
+}
+
+.button {
+    white-space: pre;
+    all: unset;            /* 全てのブラウザデフォルトスタイルをリセット */
+    display: inline-block; /* unset で消えた display を戻す */
+    color: #0f0;
+    font-family: 'Inconsolata', monospace;
+    font-size: clamp(14px, 1.5vw, 20px);
+    font-weight: 700;
+    padding: 0.1vw 1vw;
+    background-color: #000000;
+    border: 0.15vw solid #0f0;
+}
+
+.button:hover {
+    box-shadow: 0 0 5px #0f0;
+}
+
+.form:hover {
+    box-shadow: 0 0 5px #0f0;
+}
+
+.form {
+    white-space: pre;
+    all: unset;            /* 全てのブラウザデフォルトスタイルをリセット */
+    display: inline-block; /* unset で消えた display を戻す */
+    font-family: 'Inconsolata', monospace;
+    font-size: clamp(14px, 1.5vw, 20px);
+    font-weight: 700;
+    padding: 0.1vw 2vw;
+    color: #0f0;
+    background-color: #000000;
+    border: 0.15vw solid #0f0;
+    flex-grow: 0.5;
+}
+
+.form::placeholder {
+    color: #0f0;
+}
+
+.form::-webkit-input-placeholder {  /* Chrome, Safari, Edge */
+    color: #0f0;
+}
